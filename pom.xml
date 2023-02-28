@@ -97,15 +97,54 @@
 		</plugins>
 	</build>
 	<profiles>
-		    <profile>
-	      <id>deploy-github</id>
-	      <distributionManagement>
-		<repository>
-		  <id>github</id>
-		  <name>GitHub Packages</name>
-		  <url>https://maven.pkg.github.com/rajeshguptan/hailstorm</url>
-		</repository>
-	      </distributionManagement>
-	    </profile>
-	  </profiles>
+		<profile>
+			<id>deploy-ossrh</id>
+			<distributionManagement>
+				<snapshotRepository>
+					<id>ossrh</id>
+					<name>Central Repository OSSRH - Snapshots</name>
+					<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+				</snapshotRepository>
+				<repository>
+					<id>ossrh</id>
+					<name>Central Repository OSSRH - Releases</name>
+					<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+				</repository>
+			</distributionManagement>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>${maven-gpg-plugin.version}</version>
+						<configuration>
+							<gpgArguments>
+								<arg>--pinentry-mode</arg>
+								<arg>loopback</arg>
+							</gpgArguments>
+						</configuration>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>deploy-github</id>
+			<distributionManagement>
+				<repository>
+					<id>github</id>
+					<name>GitHub Packages</name>
+					<url>https://maven.pkg.github.com/rajeshguptan/hailstorm</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
 </project>
