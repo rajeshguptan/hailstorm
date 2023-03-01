@@ -33,10 +33,26 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
         
-    - name: Publish to Maven Central Repository
-      run: mvn -P deploy-ossrh deploy -Dmaven.test.skip=true -Dgpg.skip
-      env:
-        MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-        MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+
+    - name: Install gpg secret key
+      run: cat <(echo -e "${{ secrets.MAVEN_GPG_PRIVATE_KEY }}") | gpg --batch --import
+    - name: Set up maven settings
+      uses: s4u/maven-settings-action@v2.8.0
+      with:
+          servers: |
+            [{
+              "id": "ossrh",
+              "username": "${{ secrets.OSSRH_USERNAME }}",
+              "password": "${{ secrets.OSSRH_TOKEN }}"
+            },
+            {
+              "id": "gpg.passphrase",
+              "passphrase": "${{ secrets.MAVEN_GPG_PASSPHRASE }}",
+              "configuration": {}
+            }]
+    - name: Verify package
+      run: mvn --batch-mode verify
+    - name: Release package
+      run: mvn -P deploy-ossrh deploy -Dmaven.test.skip=true 
  
           
