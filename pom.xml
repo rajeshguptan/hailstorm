@@ -8,8 +8,28 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>HailStorm</name>
 	<url>https://rajeshguptan.github.io/hailstorm</url>
+	<ciManagement>
+		<system>GitHub Actions</system>
+		<url>https://github.com/brunomendola/querity/actions</url>
+	</ciManagement>
 	<properties>
+		<java.version>17</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<lombok.version>1.18.22</lombok.version>
+		<commons-lang3.version>3.12.0</commons-lang3.version>
+		<reflections.version>0.10.2</reflections.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
+		<maven-failsafe-plugin.version>2.22.0</maven-failsafe-plugin.version>
+		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
+		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+		<maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version>
+		<maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
+		<maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+		<sonar.projectName>hailstorm</sonar.projectName>
+		<sonar.organization>rajeshguptan</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.exclusions>querity-test/**</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -37,7 +57,7 @@
 		<dependency>
 			<groupId>org.reflections</groupId>
 			<artifactId>reflections</artifactId>
-			<version>0.10.2</version>
+			<version>${reflections.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -66,11 +86,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<release>17</release>
-					<source>17</source>
-					<target>17</target>
+					<release>${java.version}</release>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>
