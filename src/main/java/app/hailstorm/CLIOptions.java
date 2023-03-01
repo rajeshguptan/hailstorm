@@ -11,15 +11,38 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CLIOptions.
+ */
 class CLIOptions {
+	
+	/** The config file. */
 	public String configFile = "";
+	
+	/** The duration. */
 	public int duration;
+	
+	/** The functional mode. */
 	public boolean functionalMode = false;
+	
+	/** The verbose. */
 	public boolean verbose = false;
+	
+	/** The output folder. */
 	public String outputFolder;
+	
+	/** The test end time. */
 	public Instant testEndTime;
+	
+	/** The test start time. */
 	public Instant testStartTime = Instant.now();
 
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -29,6 +52,12 @@ class CLIOptions {
 		return builder.toString();
 	}
 
+	/**
+	 * Gets the configuration.
+	 *
+	 * @param args the args
+	 * @return the configuration
+	 */
 	public static CLIOptions getConfiguration(String[] args) {
 		CLIOptions config = new CLIOptions();
 		Options options = new Options();

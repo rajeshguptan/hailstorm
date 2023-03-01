@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package app.hailstorm;
 
 import java.io.PrintWriter;
@@ -14,20 +17,52 @@ import java.util.function.BooleanSupplier;
 
 import app.hailstorm.stats.StatCollector;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BaseTest.
+ */
 public abstract class BaseTest implements TestCase {
+	
+	/**
+	 * Instantiates a new base test.
+	 */
+	public BaseTest() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/** The step map. */
 	private Map<String, StepInfo> stepMap = new LinkedHashMap<>();
+	
+	/** The scenario sequence number. */
 	private Integer scenarioSequenceNumber;
+	
+	/** The random. */
 	ThreadLocalRandom random = ThreadLocalRandom.current();
 
+	/**
+	 * The  StepInfo.
+	 */
 	private record StepInfo(String stepName, Integer pauseSec,
 			ExceptionThrowingVoidSupplier supplier) {
 	};
 
+	/**
+	 * Step.
+	 *
+	 * @param stepName the step name
+	 * @param minSleepSec the min sleep sec
+	 * @param maxSleepSec the max sleep sec
+	 * @param supplier the supplier
+	 */
 	protected void step(String stepName, Integer minSleepSec, Integer maxSleepSec,
 			ExceptionThrowingVoidSupplier supplier) {
 		stepMap.put(stepName, new StepInfo(stepName, minSleepSec, supplier));
 	}
 
+	/**
+	 * Execute.
+	 */
 	@Override
 	public void execute() {
 		for (Map.Entry mapElement : stepMap.entrySet()) {
@@ -67,30 +102,52 @@ public abstract class BaseTest implements TestCase {
 		}
 	}
 
+	/**
+	 * Before each.
+	 */
 	@Override
 	public void beforeEach() {
 		// NOOP
 	}
 
+	/**
+	 * Inits the.
+	 */
 	@Override
 	public void init() {
 		// NOOP
 	}
 
+	/**
+	 * After each.
+	 */
 	@Override
 	public void afterEach() {
 		// NOOP
 	}
 
+	/**
+	 * Shutdown.
+	 */
 	@Override
 	public void shutdown() {
 		// NOOP
 	}
 
+	/**
+	 * Gets the scenario sequence number.
+	 *
+	 * @return the scenario sequence number
+	 */
 	public Integer getScenarioSequenceNumber() {
 		return scenarioSequenceNumber;
 	}
 
+	/**
+	 * Sets the scenario sequence number.
+	 *
+	 * @param scenarioSequenceNumber the new scenario sequence number
+	 */
 	@Override
 	public void setScenarioSequenceNumber(Integer scenarioSequenceNumber) {
 		this.scenarioSequenceNumber = scenarioSequenceNumber;

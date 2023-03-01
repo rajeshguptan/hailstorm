@@ -25,12 +25,46 @@ import app.hailstorm.annotation.HailTest;
 import app.hailstorm.reporter.StatReporter;
 import app.hailstorm.stats.StatCollector;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestRunner.
+ */
 public class TestRunner {
+	
+	/**
+	 * Instantiates a new test runner.
+	 */
+	public TestRunner() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/** The config. */
 	private static Configuration config;
+	
+	/** The scenario initialized. */
 	private static Map<String, AtomicBoolean> scenarioInitialized = new HashMap<>();
+	
+	/** The cli options. */
 	private static CLIOptions cliOptions;
+	
+	/** The reporters. */
 	private static List<StatReporter> reporters = new ArrayList<>();
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws InstantiationException the instantiation exception
+	 * @throws IllegalAccessException the illegal access exception
+	 * @throws IllegalArgumentException the illegal argument exception
+	 * @throws InvocationTargetException the invocation target exception
+	 * @throws InterruptedException the interrupted exception
+	 * @throws ConfigurationException the configuration exception
+	 * @throws SecurityException the security exception
+	 * @throws ClassNotFoundException the class not found exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static void main(String[] args)
 			throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
 			InterruptedException, ConfigurationException, SecurityException, ClassNotFoundException, IOException {
