@@ -5,7 +5,7 @@
 	<groupId>io.github.rajeshguptan</groupId>
 	<artifactId>hailstorm</artifactId>
 	<packaging>jar</packaging>
-	<version>0.0a</version>
+	<version>1.0</version>
 	<name>HailStorm</name>
 	<description>Concurrent Testing Framework for Java</description>
 	<url>https://rajeshguptan.github.io/hailstorm</url>
