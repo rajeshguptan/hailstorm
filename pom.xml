@@ -179,13 +179,13 @@
 			</distributionManagement>
 			<build>
 				<plugins>
-					<plugin>
+					<!--plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
 						<version>${maven-gpg-plugin.version}</version>
 						<configuration>
 							<gpgArguments>
-								<arg>--pinentry-mode</arg>
+								<arg>- - -pinentry-mode</arg>
 								<arg>loopback</arg>
 							</gpgArguments>
 						</configuration>
@@ -198,7 +198,7 @@
 								</goals>
 							</execution>
 						</executions>
-					</plugin>
+					</plugin-->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-release-plugin</artifactId>
