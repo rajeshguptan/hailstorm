@@ -1,17 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.rajeshguptan</groupId>
 	<artifactId>hailstorm</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.4</version>
+	<version>1.0.2</version>
 	<name>HailStorm</name>
 	<description>Concurrent Testing Framework for Java</description>
 	<url>https://rajeshguptan.github.io/hailstorm</url>
-	<parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>9</version>
-    </parent>
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -189,7 +186,6 @@
 						<configuration>
 							<gpgArguments>
 								<arg>--pinentry-mode</arg>
-								<!--arg>loopback</arg-->
 								<arg>loopback</arg>
 							</gpgArguments>
 						</configuration>
